@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     """
     
     # --- Infrastructure Connections ---
+    DEBUG: bool = False
     REDIS_URI: str = "redis://redis:6379/0"
     MONGODB_URI: str = "mongodb://mongodb:27017"
 
