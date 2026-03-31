@@ -1,5 +1,5 @@
 """
-Zave Event Models
+Memory Event Models
 Defines the schema for raw data ingestion and API responses.
 """
 
@@ -30,7 +30,7 @@ class RawEvent(BaseModel):
 
 class EventResponse(BaseModel):
     """
-    Standardize the success response when an event is accepted by the Zave gateway.
+    Standardize the success response when an event is accepted by the ingestion gateway.
     """
     
     status: str = Field(..., description="Success or failure status")

@@ -4,7 +4,7 @@ from app.api.events import router as events_router
 from app.api.memory import router as memory_router
 
 app = FastAPI(
-    title="Zave Memory System",
+    title="Event Ingestion and User Memory Management System",
     description="Real-time user memory and behavior analysis system.",
     version="0.1.0"
 )

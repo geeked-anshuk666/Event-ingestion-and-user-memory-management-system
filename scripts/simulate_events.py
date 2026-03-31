@@ -1,6 +1,6 @@
 """
-Zave Demo Simulation Script
-This script provides an automated, end-to-end walkthrough of the Zave Memory System.
+Demo Simulation Script
+This script provides an automated, end-to-end walkthrough of the Memory Management System.
 It mimics real-world e-commerce activity and verifies the background analytical pipeline.
 """
 
@@ -39,7 +39,7 @@ TEST_EVENTS = [
 ]
 
 async def send_event(event: dict):
-    """Hits the Zave Ingestion Gateway with a raw behavioral signal."""
+    """Hits the Ingestion Gateway with a raw behavioral signal."""
     headers = {"X-API-Key": API_KEY}
     
     async with httpx.AsyncClient() as client:
@@ -86,7 +86,7 @@ async def main():
     Main Demo Orchestrator.
     It fires the events, waits for the AI to 'think', and then proves the results.
     """
-    print(f"=== Zave System Demo: {TEST_USER_ID} ===\n")
+    print(f"=== System Demo: {TEST_USER_ID} ===\n")
     
     # 1. Ingest all mock behavioral signals
     for event in TEST_EVENTS:

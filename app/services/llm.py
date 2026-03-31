@@ -1,6 +1,6 @@
 """
-Zave LLM Behavioral Extraction Service
-This service is the 'Cognitive Engine' of Zave. It uses advanced Large Language Models
+Memory Management LLM Behavioral Extraction Service
+This service is the 'Cognitive Engine' of the system. It uses advanced Large Language Models
 to parse unstructured, messy user data into structured behavioral insights.
 """
 
@@ -51,7 +51,7 @@ Output Schema:
 class LLMService:
     """
     LLMService manages connections to the OpenRouter API and handles model fallbacks.
-    It ensures that even if one AI model is down or rate-limited, Zave continues to function.
+    It ensures that even if one AI model is down or rate-limited, the system continues to function.
     """
 
     def __init__(self):
@@ -60,8 +60,8 @@ class LLMService:
             api_key=settings.OPENROUTER_API_KEY,
             base_url="https://openrouter.ai/api/v1",
             default_headers={
-                "HTTP-Referer": "https://github.com/zave/memory-system",
-                "X-Title": "Zave Memory System"
+                "HTTP-Referer": "https://github.com/geeked-anshuk666/Event-ingestion-and-user-memory-management-system",
+                "X-Title": "Event Ingestion and User Memory Management System"
             }
         )
 

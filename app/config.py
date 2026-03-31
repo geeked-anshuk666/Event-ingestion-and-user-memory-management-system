@@ -1,5 +1,5 @@
 """
-Zave Global Configuration
+Event Memory System Global Configuration
 Uses Pydantic Settings to manage environment variables with strict typing.
 """
 

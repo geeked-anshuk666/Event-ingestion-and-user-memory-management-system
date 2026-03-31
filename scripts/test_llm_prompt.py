@@ -41,8 +41,8 @@ client = OpenAI(
     api_key=API_KEY, 
     base_url=BASE_URL,
     default_headers={
-        "HTTP-Referer": "https://github.com/zave/zave-memory-system",
-        "X-Title": "Zave Memory System",
+        "HTTP-Referer": "https://github.com/geeked-anshuk666/Event-ingestion-and-user-memory-management-system",
+        "X-Title": "Event Ingestion and User Memory Management System",
     }
 )
 

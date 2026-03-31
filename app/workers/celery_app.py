@@ -2,7 +2,7 @@ from celery import Celery
 from app.config import settings
 
 celery_app = Celery(
-    "zave_worker",
+    "memory_worker_app",
     broker=settings.REDIS_URI,
     backend=settings.REDIS_URI,
     include=["app.workers.tasks"]

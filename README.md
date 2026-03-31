@@ -1,19 +1,31 @@
-# Zave Memory System
+<div align="center">
+  <img src="file:///C:/Users/anshuk/.gemini/antigravity/brain/b671f577-7e0c-4667-8540-047ee40e9ef1/event_memory_system_hero_1774994107848.png" width="100%" alt="Event Ingestion and User Memory Management System Hero" />
 
-Zave is a high-performance, real-time user behavioral analysis engine designed for modern e-commerce. It transforms noisy, unstructured clickstream logs into a multi-layered "User Memory" profile that powers hyper-personalization at sub-10ms speeds.
+  # Event Ingestion & User Memory Management System
+  
+  [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+  [![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0%2B-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+  [![MongoDB](https://img.shields.io/badge/MongoDB-6.0%2B-47A248.svg?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+  [![Redis](https://img.shields.io/badge/Redis-7.0%2B-DC382D.svg?style=flat&logo=redis&logoColor=white)](https://redis.io/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  **A high-performance, real-time user behavioral analysis engine designed for modern e-commerce.**
+  *Transforming noisy, unstructured clickstream logs into multi-layered "Cognitive Memory" profiles for hyper-personalization at sub-10ms speeds.*
+</div>
 
 ---
 
-## The "Zave" Philosophy
+## 🧠 Core Philosophy: The Memory System
 
-Most systems filter data *before* storing it, losing valuable context forever. Zave uses a **Data Lake** architecture:
-1. **Raw Ingestion**: We capture every raw event (logs, text, JSON) exactly as it arrives.
-2. **Asynchronous Brain**: LLMs process this "lake" in the background to extract behavioral signals.
-3. **Evolving Memory**: If our AI logic improves tomorrow, we can re-process the raw data lake to build even better user profiles.
+Most systems filter data *before* storing it, losing valuable context forever. Our system uses a **Data Lake** architecture to preserve every "thought" and "action" of the user, allowing for retrospective analysis as AI models evolve.
+
+1.  **Raw Ingestion**: Capture every raw event (logs, text, JSON) exactly as it arrives—immutable and audit-ready.
+2.  **Asynchronous Brain**: Specialized LLM workers process the data lake in the background, extracting deep behavioral signals without slowing down the user experience.
+3.  **Evolving Identity**: A 4-layer memory model that mirrors human-like cognition, providing a rich context for recommendation engines and personalized storefronts.
 
 ---
 
-## Technical Architecture
+## 🛠️ Technical Architecture
 
 ```mermaid
 graph TD
@@ -21,7 +33,7 @@ graph TD
     API -->|Raw Storage| MongoRaw[(MongoDB Data Lake)]
     API -->|Queue| Redis[Redis Broker]
     Redis -->|Worker| Worker[Celery Analytics]
-    Worker -->|Analyze| LLM[OpenRouter / LLM]
+    Worker -->|Analyze| LLM[OpenRouter / LLM Cluster]
     Worker -->|Structured Save| MongoMem[(MongoDB User Memory)]
     Worker -->|Invalidate| Cache[Redis Memory Cache]
     Client -->|GET /memory| API
@@ -29,64 +41,65 @@ graph TD
     Cache -.->|Miss| MongoMem
 ```
 
----
+### Infrastructure Stack
 
-## Features & Stack
-
-- **Data Lake Ingestion**: Handles raw, unstructured text/logs (`RawEvent` model).
-- **4-Layer Memory Model**:
-    - **Persistent**: Long-term preferences (price sensitivity, categories).
-    - **Episodic**: Chronological action timeline (bounded to last 100).
-    - **Semantic**: Deduplicated conceptual interests.
-    - **Contextual**: Short-term session focus.
-- **Async Pipeline**: FastAPI + Celery + Redis for 100% non-blocking ingestion.
-- **LLM Guardrails**: Pydantic validation strips out LLM hallucinations before DB insertion.
-- **Performance**: Sub-10ms retrieval via Redis-backed Cache-Aside pattern.
+| Component | Technology | Rationale |
+| :--- | :--- | :--- |
+| **Gateway** | FastAPI | Async-native, sub-millisecond routing, and automatic OpenAPI documentation. |
+| **Data Lake** | MongoDB | Immutable storage of unstructured raw events with flexible schema-on-read capability. |
+| **Task Broker** | Redis | Low-latency message queuing for decoupling ingestion from heavy LLM processing. |
+| **Analytics** | Celery | Mature, reliable distributed task execution with built-in retry logic and model fallback. |
+| **Memory Store** | MongoDB | Optimized for deeply nested, document-based cognitive profiles (Persistent, Episodic, etc.). |
+| **Cache Layer** | Redis | High-speed, cache-aside pattern ensuring personalization data is served in <10ms. |
 
 ---
 
-## Quick Start & Demo Guide
+## 📖 The 4-Layer Memory Model
+
+The system organizes user data into four distinct cognitive layers, each serving a specific personalization goal:
+
+- **Persistent**: Long-term, slow-changing traits (e.g., price sensitivity, favorite categories, location-based habits).
+- **Episodic**: A chronological, bounded timeline of the last 100 specific actions (e.g., "Compared Laptop A vs. Laptop B 2 hours ago").
+- **Semantic**: A set of inferred high-level interests and concept tags (e.g., "Gamer", "Fitness Enthusiast", "Early Adopter").
+- **Contextual**: Immediate, session-specific intent (e.g., "Actively searching for a gift for a child's birthday").
+
+---
+
+## 🚀 Quick Start & Demo
 
 ### 1. Boot the Stack
-Ensure you have your `OPENROUTER_API_KEY` in the `.env` file, then run:
+Ensure your `OPENROUTER_API_KEY` is present in the `.env` file, then run:
 ```bash
 docker-compose up -d --build
 ```
 
-### 2. Run the Live Simulation
-The simulation script mimics real user behavior and handles the polling for the background processing:
+### 2. Run the Behavioral Simulation
+Mimic real-world user activity (browsing, comparisons, cart actions) using the automated walkthrough:
 ```bash
 python scripts/simulate_events.py
 ```
 
-### 3. Verification & Demo (Swagger)
-Open **`http://localhost:8000/docs`** and follow these steps to wow the judges:
-
-1. **Authorize**: Click the padlock and enter your `API_KEY`.
-2. **Check the Data Lake**: Use `GET /users/{user_id}/events/raw`. This proves we saved the *original, noisy* inputs before processing.
-3. **Show the Intelligence**: Use `GET /users/{user_id}/memory`. This shows the beautifully structured JSON output of the LLM.
-4. **Prove the Speed (The "Mic Drop")**:
-    - Open your browser's **Network Tab** (F12).
-    - Click **"Execute"** on the `/memory` endpoint once. (Watch the ~80ms Mongo fetch).
-    - Click **"Execute"** again immediately. (Watch the **~2ms** Redis Cache hit).
----
-
-## Core Deliverables & Trade-offs
-
-### Requirement Checklist
-- [x] **GitHub Repository**: [Zave Memory Management](https://github.com/geeked-anshuk666/Zave-memory-management)
-- [x] **README**: Comprehensive architecture and philosophy.
-- [x] **API Documentation**: Automated Swagger UI at `/docs`.
-- [x] **Sample Data & Scripts**: Realistic simulation in `scripts/simulate_events.py`.
-- [x] **Professional Commentary**: Every file documented for human clarity.
-
-### Architecture Trade-offs
-1. **Eventual Consistency vs. Real-time Ingestion**: We chose an **asynchronous (Celery)** model. *Trade-off:* User memory isn't updated *instantly* (takes ~5-15s), but the API response for the storefront stays incredibly fast (<30ms).
-2. **MongoDB vs. SQL**: We chose **MongoDB**. *Trade-off:* Losing relational constraints, but gaining the ability to store deeply nested, evolving "Cognitive Layers" without migrations.
-3. **Redis Cache-Aside**: *Trade-off:* We use extra RAM for caching, but the millisecond performance gain for the end-user outweighs the infrastructure cost.
-4. **Data Lake Approach**: *Trade-off:* Increased storage usage by keeping "raw" data, but providing a 100% accurate audit trail and future-proofing the AI logic.
+### 3. The "Mic Drop" Verification (Sub-5ms Personalization)
+1.  Open **`http://localhost:8000/docs`**.
+2.  **Authorize** using your `API_KEY`.
+3.  **GET /memory**:
+    - **First Call**: Fetches from MongoDB (~80ms).
+    - **Subsequent Calls**: Hits the **Redis Cache (~2ms)**.
+4.  **Verify Intelligence**: Use `GET /events/raw/{user_id}` to see the "Raw Lake" and compare it with the structured intelligence in `GET /users/{user_id}/memory`.
 
 ---
 
-## License
-MIT - Built for the Zave Behavioral Hackathon.
+## 🛡️ Deliverables & Security
+
+- ✅ **Full Ingestion API**: Real-time storage of unstructured data.
+- ✅ **Distributed Analytics**: Celery-powered LLM behavioral extraction.
+- ✅ **High-Availability Cache**: Redis-backed personalization layer.
+- ✅ **Security First**: API-Key validation, rate limiting, and payload size enforcement.
+- ✅ **Verification Suite**: Built-in scripts for security auditing and simulation.
+
+---
+
+## ⚖️ License
+Distributed under the MIT License. Built for the Behavioral Hackathon.
+
+[**New Repository URL**](https://github.com/geeked-anshuk666/Event-ingestion-and-user-memory-management-system)

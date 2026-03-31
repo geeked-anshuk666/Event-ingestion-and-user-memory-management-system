@@ -1,5 +1,5 @@
 """
-Zave User Memory Retrieval API
+User Memory Retrieval API
 This module provides high-performance access to the processed behavioral profiles.
 It implements a Cache-Aside pattern using Redis for sub-10ms response times.
 """

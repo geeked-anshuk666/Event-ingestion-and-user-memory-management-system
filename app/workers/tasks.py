@@ -1,5 +1,5 @@
 """
-Zave Background Worker Tasks
+Memory Background Worker Tasks
 This module contains the Celery tasks that perform the heavy lifting of 
 asynchronous behavioral analysis and memory synchronization.
 """
@@ -48,7 +48,7 @@ def process_event(event_data: dict):
     loop.run_until_complete(memory_service.update_memory(user_id, behavioral_data))
     
     # --- PHASE 3: Cache Invalidation ---
-    # To keep Zave lightning fast, we serve reads from Redis. 
+    # To keep the system lightning fast, we serve reads from Redis. 
     # By deleting the cache here, we force the next frontend request to 
     # pull the freshly updated memory from the database.
     loop.run_until_complete(cache_service.invalidate(user_id))

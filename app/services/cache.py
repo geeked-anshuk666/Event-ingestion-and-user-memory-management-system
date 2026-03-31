@@ -1,7 +1,7 @@
 """
-Zave Cache Service
+Memory Cache Service
 Implements the high-speed 'Read-Aside' logic for user memory retrieval.
-This ensures Zave can provide sub-10ms personalization for millions of users.
+This ensures the system can provide sub-10ms personalization for millions of users.
 """
 
 import json

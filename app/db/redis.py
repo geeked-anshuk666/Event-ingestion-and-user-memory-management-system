@@ -1,5 +1,5 @@
 """
-Zave Redis Connector
+Memory System Redis Connector
 Provides a centralized, asynchronous client for our caching and task-queueing layers.
 """
 

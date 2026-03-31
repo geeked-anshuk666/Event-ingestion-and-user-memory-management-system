@@ -1,5 +1,5 @@
 """
-Zave Event Ingestion API
+Event Ingestion API
 This module serves as the primary gateway for all user behavioral data. 
 It handles the storage of raw data into the Data Lake and queues background tasks for analysis.
 """

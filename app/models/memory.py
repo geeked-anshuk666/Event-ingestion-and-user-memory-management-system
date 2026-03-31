@@ -1,6 +1,6 @@
 """
-Zave Cognitive Memory Models
-This is the core data structure of the Zave ecosystem. 
+Cognitive Memory Models
+This is the core data structure of the system's memory. 
 It defines the 4 layers of human-like memory: Persistent, Episodic, Semantic, and Contextual.
 """
 
