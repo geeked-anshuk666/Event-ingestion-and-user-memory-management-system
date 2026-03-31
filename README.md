@@ -15,17 +15,17 @@
 
 ---
 
-## 🧠 Core Philosophy: The Memory System
+## Core Philosophy: The Memory System
 
 Most systems filter data *before* storing it, losing valuable context forever. Our system uses a **Data Lake** architecture to preserve every "thought" and "action" of the user, allowing for retrospective analysis as AI models evolve.
 
-1.  **Raw Ingestion**: Capture every raw event (logs, text, JSON) exactly as it arrives—immutable and audit-ready.
+1.  **Raw Ingestion**: Capture every raw event (logs, text, JSON) exactly as it arrives-immutable and audit-ready.
 2.  **Asynchronous Brain**: Specialized LLM workers process the data lake in the background, extracting deep behavioral signals without slowing down the user experience.
 3.  **Evolving Identity**: A 4-layer memory model that mirrors human-like cognition, providing a rich context for recommendation engines and personalized storefronts.
 
 ---
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ```mermaid
 graph TD
@@ -54,7 +54,7 @@ graph TD
 
 ---
 
-## 📖 The 4-Layer Memory Model
+## The 4-Layer Memory Model
 
 The system organizes user data into four distinct cognitive layers, each serving a specific personalization goal:
 
@@ -65,7 +65,7 @@ The system organizes user data into four distinct cognitive layers, each serving
 
 ---
 
-## 🚀 Quick Start & Demo
+## Quick Start & Demo
 
 ### 1. Boot the Stack
 Ensure your `OPENROUTER_API_KEY` is present in the `.env` file, then run:
@@ -89,7 +89,7 @@ python scripts/simulate_events.py
 
 ---
 
-## 🛡️ Deliverables & Security
+## Deliverables & Security
 
 - ✅ **Full Ingestion API**: Real-time storage of unstructured data.
 - ✅ **Distributed Analytics**: Celery-powered LLM behavioral extraction.
@@ -99,7 +99,5 @@ python scripts/simulate_events.py
 
 ---
 
-## ⚖️ License
+## License
 Distributed under the MIT License. Built for the Behavioral Hackathon.
-
-[**New Repository URL**](https://github.com/geeked-anshuk666/Event-ingestion-and-user-memory-management-system)
