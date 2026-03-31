@@ -7,7 +7,7 @@
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0%2B-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
   [![MongoDB](https://img.shields.io/badge/MongoDB-6.0%2B-47A248.svg?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
   [![Redis](https://img.shields.io/badge/Redis-7.0%2B-DC382D.svg?style=flat&logo=redis&logoColor=white)](https://redis.io/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
   **A high-performance, real-time user behavioral analysis engine designed for modern e-commerce.**
   *Transforming noisy, unstructured clickstream logs into multi-layered "Cognitive Memory" profiles for hyper-personalization at sub-10ms speeds.*
@@ -100,4 +100,4 @@ python scripts/simulate_events.py
 ---
 
 ## License
-Distributed under the MIT License. Built for the Behavioral Hackathon.
+Distributed under the [MIT License](LICENSE). 
