@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="file:///C:/Users/anshuk/.gemini/antigravity/brain/b671f577-7e0c-4667-8540-047ee40e9ef1/event_memory_system_hero_1774994107848.png" width="100%" alt="Event Ingestion and User Memory Management System Hero" />
+  <img src="./assets/hero.png" width="100%" alt="Event Ingestion and User Memory Management System Hero" />
 
   # Event Ingestion & User Memory Management System
   
