@@ -91,11 +91,11 @@ python scripts/simulate_events.py
 
 ## Deliverables & Security
 
-- ✅ **Full Ingestion API**: Real-time storage of unstructured data.
-- ✅ **Distributed Analytics**: Celery-powered LLM behavioral extraction.
-- ✅ **High-Availability Cache**: Redis-backed personalization layer.
-- ✅ **Security First**: API-Key validation, rate limiting, and payload size enforcement.
-- ✅ **Verification Suite**: Built-in scripts for security auditing and simulation.
+- **Full Ingestion API**: Real-time storage of unstructured data.
+- **Distributed Analytics**: Celery-powered LLM behavioral extraction.
+- **High-Availability Cache**: Redis-backed personalization layer.
+- **Security First**: API-Key validation, rate limiting, and payload size enforcement.
+- **Verification Suite**: Built-in scripts for security auditing and simulation.
 
 ---
 
